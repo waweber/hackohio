@@ -46,6 +46,26 @@ body {
     margin-top: 20px;
 }
 
+.analyser-container {
+    width: 755px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.analyser-container .sizer {
+    height: 500px;
+    display: inline-block;
+}
+
+.analyser-bar {
+    display: inline-block;
+    transition: height 0.1s;
+    width: 20px;
+    margin-left: 2px;
+    margin-right: 2px;
+    background: #ffcc00;
+}
+
 @media(max-width: 767px) {
     .bottombar {
         background: #333;

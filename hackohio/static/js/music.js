@@ -69,10 +69,10 @@ window.music = new function () {
 
         var avgFreqData = new Float32Array(50);
 
-        for (var i = 0; i < 50; i++) {
-            var minIdx = i * Math.floor(freqData.length / avgFreqData.length);
+        for (var i = 0; i < 30; i++) {
+            var minIdx = i * Math.floor(freqData.length / 50);
             var maxIdx = minIdx + Math.floor(freqData.length /
-                    avgFreqData.length) - 1;
+                    50) - 1;
 
             if (maxIdx >= freqData.length)
                 maxIdx = freqData.length - 1;
@@ -86,9 +86,13 @@ window.music = new function () {
             }
 
             avgFreqData[i] /= count;
-        }
 
-        console.log(avgFreqData);
+            var el = document.getElementById("analyser-bar-" + i);
+            
+            if (el) {
+                el.style = "height: " + Math.round(avgFreqData[i]) + "px";
+            }
+        }
     };
 
     this.attachAnalyser = function(element) {

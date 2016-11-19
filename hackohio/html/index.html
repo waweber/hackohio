@@ -64,6 +64,9 @@
     </div>
 </div>
 
+<div class="analyser-container">
+</div>
+
 <audio id="media"></audio>
 
 <div class="bottombar">
@@ -120,6 +123,17 @@
         $("#media").bind("ended", function(evt) {
             window.music.advancePlaylist();
         });
+
+        var analyserHtml = "";
+
+        for (var i = 0; i < 30; i++) {
+            analyserHtml += "<div id='analyser-bar-" + i +
+                "' class='analyser-bar'></div>";
+        }
+
+        analyserHtml += "<div class='sizer'></div>";
+
+        $(".analyser-container").html(analyserHtml);
 
         window.music.attachAnalyser($("#media")[0]);
     });
