@@ -4,8 +4,8 @@ import requests
 import json
 from hackohio.secrets import get_secret
 
-MICROSOFT_API_BASE = 'https://westus.api.cognitive.microsoft.com/'
-TEXT_ANALYSIS_URL = MICROSOFT_API_BASE + 'text/analytics/v2.0/sentiment'
+TEXT_ANALYSIS_URL = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment'
+PICTURE_ANALYSIS_URL = 'https://api.projectoxford.ai/emotion/v1.0/recognize'
 
 class Mood:
 
@@ -49,3 +49,24 @@ class Mood:
             return'sad'
 
         return 'neutral'
+
+    @classmethod
+    def mood_from_picture(cls, picture):
+        headers = {
+            'Ocp-Apim-Subscription-Key': get_secret('microsoft_pic', 'key_1'),
+            'Content-Type': 'application/octet-stream'
+        }
+
+        pic_data = picture.read()
+        r = requests.post(PICTURE_ANALYSIS_URL, headers=headers, data=pic_data)
+        response_json = r.json()
+
+        # Find strongest emotion
+        max_val = 0
+        max_emotion = 'neutral'
+        for key, value in response_json[0]["scores"].items():
+            if value > max_val:
+                max_val = value
+                max_emotion = key
+
+        return max_emotion
