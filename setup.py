@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 
 reqs = [
     "pyramid",
+    "pyramid_jinja2",
     "waitress",
 ]
 
