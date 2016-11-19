@@ -87,10 +87,12 @@ window.music = new function () {
 
             avgFreqData[i] /= count;
 
+            var val = avgFreqData[i] / 200;
+
             var el = document.getElementById("analyser-bar-" + i);
             
             if (el) {
-                el.style = "height: " + Math.round(avgFreqData[i]) + "px";
+                el.style = "height: " + (100 * val) + "%";
             }
         }
     };
