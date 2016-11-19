@@ -13,6 +13,11 @@ body {
     font-size: 22px;
 }
 
+.menubtn {
+    float: right;
+    vertical-align: middle;
+}
+
 @media(max-width: 767px) {
     .bottombar {
         background: #333;
