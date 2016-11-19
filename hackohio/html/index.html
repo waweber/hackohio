@@ -43,19 +43,19 @@
         <div class="row">
             <div class="col-xs-6">
                 <div class="songinfo">
-
+                    <img id="albumArt" src="" alt=""/>
                 </div>
             </div>
             <div class="col-xs-6 songinfotextcol">
                 <table class="songinfotable">
                     <tr>
-                        <td>Bring Me To Life</td>
+                        <td><span id="songTitle"></span></td>
                     </tr>
                     <tr>
-                        <td>Evanescence</td>
+                        <td><span id="artistName"></span></td>
                     </tr>
                     <tr>
-                        <td><em>Now That's What I Call Edgy</em></td>
+                        <td><em><span id="albumName"></span></em></td>
                     </tr>
                 </table>
             </div>
@@ -63,13 +63,15 @@
     </div>
 </div>
 
+<audio id="media"></audio>
+
 <div class="bottombar">
     <nav class="navbar">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="#"><span
-                            class="glyphicon glyphicon-play"></span></a>
+                            class="glyphicon glyphicon-play playbtn"></span></a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -84,6 +86,12 @@
     </nav>
 </div>
 
+<script src="/static/js/music.js"></script>
+
+<script>
+    window.music.getPlaylist("angry", window.music.queuePlaylist);
+</script>
+
 <script>
     /* Slider Init */
     $('#volume').slider({
@@ -92,11 +100,9 @@
         }
     });
 
-
-
-
-
-
+    $('#volume').on("change", function(ev) {
+        $("#media")[0].volume = ev.value.newValue / 100;
+    });
 </script>
 
 </body>

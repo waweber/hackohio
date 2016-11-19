@@ -55,7 +55,7 @@ def playlist_view(request):
         }]
     elif name == "sad":
         return [{
-            "media": "/static/media/sad1.ogg",
+            "media": "/static/media/sad1.mp3",
             "cover": "/static/media/sad1.jpg",
             "title": "Sad Song 1",
             "artist": "Sad Guy",
@@ -72,6 +72,26 @@ def playlist_view(request):
             "title": "Sad Song 3",
             "artist": "Sad Person",
             "album": "Sad II",
+        }]
+    if name == "angry":
+        return [{
+            "media": "/static/media/angry1.mp3",
+            "cover": "/static/media/angry1.jpg",
+            "title": "Angry Song 1",
+            "artist": "Angry Guy",
+            "album": "Angry Album",
+        }, {
+            "media": "/static/media/angry2.ogg",
+            "cover": "/static/media/angry2.jpg",
+            "title": "Angry Song 2",
+            "artist": "Angry Guy",
+            "album": "Angry Album 2",
+        }, {
+            "media": "/static/media/angry3.ogg",
+            "cover": "/static/media/angry3.jpg",
+            "title": "Angry Song 3",
+            "artist": "Angry Person",
+            "album": "Angry II",
         }]
     else:
         return [{
