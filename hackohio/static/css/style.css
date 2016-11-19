@@ -1,7 +1,15 @@
 
 body {
     color: #eee;
+}
+
+.bg {
     background: #111 url("../img/wallpaper.png") center;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 .topbar {
