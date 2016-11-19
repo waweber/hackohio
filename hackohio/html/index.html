@@ -11,6 +11,7 @@
     <script src="/static/js/backbone.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/bootstrap-slider.min.js"></script>
+    <script src="/static/js/webcam.min.js"></script>
 </head>
 <body>
 
@@ -90,14 +91,13 @@
     </nav>
 </div>
 
+<div style="display:none" id="cameraplaceholder"></div>
+
 <script src="/static/js/music.js"></script>
+<script src="/static/js/camera.js"></script>
 
 <script>
     window.music.getPlaylist("angry", window.music.queuePlaylist);
-
-
-
-
 </script>
 
 <script>
@@ -112,6 +112,13 @@
         $("#media")[0].volume = ev.value.newValue / 100;
     });
    
+    window.addEventListener("load", function(ev) {
+        window.setTimeout(function(ev) {
+            window.camera.takePicture();
+        }, 6000);
+    });
+
+
 </script>
 
 </body>
