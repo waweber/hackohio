@@ -29,9 +29,6 @@ class Mood:
         secret = get_secret('twitter', 'consumer_secret')
         auth = tweepy.OAuthHandler(key, secret)
 
-        print(key)
-        print(secret)
-        print(auth)
         api = tweepy.API(auth)
 
         most_recent_tweet = api.user_timeline(screen_name=handle, count=1)[0]
@@ -57,6 +54,7 @@ class Mood:
             'Content-Type': 'application/octet-stream'
         }
 
+
         pic_data = picture.read()
         r = requests.post(PICTURE_ANALYSIS_URL, headers=headers, data=pic_data)
         response_json = r.json()
@@ -69,4 +67,18 @@ class Mood:
                 max_val = value
                 max_emotion = key
 
-        return max_emotion
+        # Standardize the emotion
+        if max_emotion == 'happiness':
+            return 'happy'
+        elif max_emotion == 'sadness':
+            return 'sad'
+        elif max_emotion == 'fear':
+            return 'sad'
+        elif max_emotion == 'anger':
+            return 'angry'
+        elif max_emotion == 'disgust':
+            return 'angry'
+        elif max_emotion == 'contempt':
+            return 'angry'
+
+        return 'neutral'

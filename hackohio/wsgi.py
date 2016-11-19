@@ -120,15 +120,13 @@ def playlist_view(request):
 def mood_twitter_view(request):
     twitter_handle = request.GET.get('handle')
 
-    print(twitter_handle)
-
     return {
         "mood": Mood.mood_from_twitter(twitter_handle)
     }
 
 @view_config(route_name="mood#webcam", renderer="json", request_method="POST")
 def mood_twitter_view(request):
-    picture = request.body_file
+    picture = request.POST.get('webcam').file
 
     # TODO: Check validity? Resize?
 
