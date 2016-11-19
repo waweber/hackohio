@@ -11,4 +11,10 @@ setup(
     packages=find_packages(),
 
     install_requires=reqs,
+
+    entry_points={
+        "paste.app_factory": [
+            "main = hackohio.wsgi:main",
+        ],
+    },
 )
