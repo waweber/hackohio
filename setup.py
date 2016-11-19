@@ -4,6 +4,7 @@ reqs = [
     "pyramid",
     "pyramid_jinja2",
     "waitress",
+    "tweepy"
 ]
 
 setup(
