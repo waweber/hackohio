@@ -15,10 +15,15 @@
 </head>
 <body>
 
+<div class="analyser-container-container">
+    <div class="analyser-container">
+    </div>
+</div>
+
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">music</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
@@ -39,27 +44,23 @@
     </div>
 </nav>
 
-<div class="songpanel">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="songinfo">
-                    <img id="albumArt" src="" alt=""/>
-                </div>
-            </div>
-            <div class="col-xs-6 songinfotextcol">
-                <table class="songinfotable">
-                    <tr>
-                        <td><span id="songTitle"></span></td>
-                    </tr>
-                    <tr>
-                        <td><span id="artistName"></span></td>
-                    </tr>
-                    <tr>
-                        <td><em><span id="albumName"></span></em></td>
-                    </tr>
-                </table>
-            </div>
+<div class="songpanel-container">
+    <div class="songpanel">
+        <div class="songinfo">
+            <img id="albumArt" src="" alt=""/>
+        </div>
+        <div class="songinfotextcol">
+            <table class="songinfotable">
+                <tr>
+                    <td><span id="songTitle"></span></td>
+                </tr>
+                <tr>
+                    <td><span id="artistName"></span></td>
+                </tr>
+                <tr>
+                    <td><em><span id="albumName"></span></em></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
@@ -93,6 +94,7 @@
 
 <div style="display:none" id="cameraplaceholder"></div>
 
+
 <script src="/static/js/music.js"></script>
 <script src="/static/js/camera.js"></script>
 
@@ -113,13 +115,26 @@
     });
    
     window.addEventListener("load", function(ev) {
-        window.setTimeout(function(ev) {
+        /*window.setTimeout(function(ev) {
             window.camera.takePicture();
-        }, 6000);
+        }, 6000);*/
 
         $("#media").bind("ended", function(evt) {
             window.music.advancePlaylist();
         });
+
+        var analyserHtml = "";
+
+        for (var i = 0; i < 30; i++) {
+            analyserHtml += "<div id='analyser-bar-" + i +
+                "' class='analyser-bar'></div>";
+        }
+
+        analyserHtml += "<div class='sizer'></div>";
+
+        $(".analyser-container").html(analyserHtml);
+
+        window.music.attachAnalyser($("#media")[0]);
     });
 
 </script>
