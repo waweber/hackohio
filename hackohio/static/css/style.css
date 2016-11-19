@@ -153,3 +153,83 @@ body {
         width: 250px;
     }
 }
+
+.glowy {
+    background: radial-gradient(#222, rgba(0,0,0,0));
+    background-size: 500% 500%;
+
+    -webkit-animation: glow 30s ease infinite;
+    -moz-animation: glow 30s ease infinite;
+    -o-animation: glow 30s ease infinite;
+    animation: glow 30s ease infinite;
+
+    mix-blend-mode: screen;
+}
+
+@-webkit-keyframes glow {
+    0%{background-position:0% 18%}
+    25%{background-position:0% 83%}
+    50%{background-position:100% 83%}
+    75%{background-position:100% 18%}
+    100%{background-position:0% 18%}
+}
+
+@-moz-keyframes glow {
+    0%{background-position:0% 18%}
+    25%{background-position:0% 83%}
+    50%{background-position:100% 83%}
+    75%{background-position:100% 18%}
+    100%{background-position:0% 18%}
+}
+
+@-o-keyframes glow {
+    0%{background-position:0% 18%}
+    25%{background-position:0% 83%}
+    50%{background-position:100% 83%}
+    75%{background-position:100% 18%}
+    100%{background-position:0% 18%}
+}
+
+@keyframes glow {
+    0%{background-position:0% 18%}
+    25%{background-position:0% 83%}
+    50%{background-position:100% 83%}
+    75%{background-position:100% 18%}
+    100%{background-position:0% 18%}
+}
+
+.glowy.angry {
+    background: radial-gradient(#500, rgba(0,0,0,0));
+    background-size: 500% 500%;
+
+    -webkit-animation: glow 30s ease infinite;
+    -moz-animation: glow 30s ease infinite;
+    -o-animation: glow 30s ease infinite;
+    animation: glow 30s ease infinite;
+
+    mix-blend-mode: screen;
+}
+
+.glowy.happy {
+    background: radial-gradient(#030, rgba(0,0,0,0));
+    background-size: 500% 500%;
+
+    -webkit-animation: glow 30s ease infinite;
+    -moz-animation: glow 30s ease infinite;
+    -o-animation: glow 30s ease infinite;
+    animation: glow 30s ease infinite;
+
+    mix-blend-mode: screen;
+}
+
+.glowy.sad {
+    background: radial-gradient(#013, rgba(0,0,0,0));
+    background-size: 500% 500%;
+
+    -webkit-animation: glow 30s ease infinite;
+    -moz-animation: glow 30s ease infinite;
+    -o-animation: glow 30s ease infinite;
+    animation: glow 30s ease infinite;
+
+    mix-blend-mode: screen;
+}
