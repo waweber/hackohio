@@ -38,6 +38,13 @@ window.music = new function () {
         This.play(This.currentPlaylist.shift());
     };
 
+    this.advancePlaylist = function() {
+        if (This.currentPlaylist.length > 0) {
+            var song = This.currentPlaylist.shift();
+            This.play(song);
+        };
+    };
+
     this.getPlaylist = function(mood, callback) {
         $.get("/playlist/" + mood, null, function(data, status, xhr) {
             callback(data);
@@ -47,6 +54,8 @@ window.music = new function () {
     document.addEventListener("click", function(ev) {
         if (ev.target.className.indexOf("playbtn") != -1) {
             This.playToggle(ev.target);
+        } else if (ev.target.className.indexOf("glyphicon-step-forward") != -1) {
+            This.advancePlaylist();
         }
     });
 }();

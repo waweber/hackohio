@@ -73,6 +73,10 @@
                     <a href="#"><span
                             class="glyphicon glyphicon-play playbtn"></span></a>
                 </li>
+                <li>
+                    <a href="#"><span
+                            class="glyphicon glyphicon-step-forward"></span></a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
@@ -90,6 +94,10 @@
 
 <script>
     window.music.getPlaylist("angry", window.music.queuePlaylist);
+
+
+
+
 </script>
 
 <script>
@@ -103,6 +111,7 @@
     $('#volume').on("change", function(ev) {
         $("#media")[0].volume = ev.value.newValue / 100;
     });
+   
 </script>
 
 </body>
