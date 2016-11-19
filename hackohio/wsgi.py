@@ -7,6 +7,7 @@ logger = logging.getLogger(__name__)
 
 def main(global_config, **settings):
     config = Configurator(settings=settings)
+    config.include("pyramid_debugtoolbar")
 
     config.add_static_view("/static", "hackohio:static/")
 

@@ -4,7 +4,8 @@ reqs = [
     "pyramid",
     "pyramid_jinja2",
     "waitress",
-    "tweepy"
+    "tweepy",
+    "pyramid_debugtoolbar",
 ]
 
 setup(
