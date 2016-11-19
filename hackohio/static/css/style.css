@@ -35,6 +35,17 @@ body {
     align-items: center;
 }
 
+.slider-handle {
+	background-color: #bbb;
+	background-image: none;
+}
+
+.slider {
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
 @media(max-width: 767px) {
     .bottombar {
         background: #333;
