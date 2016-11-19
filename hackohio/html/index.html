@@ -113,13 +113,15 @@
     });
    
     window.addEventListener("load", function(ev) {
-        window.setTimeout(function(ev) {
+        /*window.setTimeout(function(ev) {
             window.camera.takePicture();
-        }, 6000);
+        }, 6000);*/
 
         $("#media").bind("ended", function(evt) {
             window.music.advancePlaylist();
         });
+
+        window.music.attachAnalyser($("#media")[0]);
     });
 
 </script>
