@@ -30,6 +30,17 @@ window.music = new function () {
             $(".playbtn").removeClass("glyphicon-play");
             $(".playbtn").addClass("glyphicon-pause");
         }
+
+        if (Notification.permission != "granted") {
+            Notification.requestPermission();
+        }
+
+        new Notification(
+            "Now Playing: " + songInfo.title + " by " + songInfo.artist,
+            {
+                icon: songInfo.cover
+            }
+        );
     };
 
     this.queuePlaylist = function(playlist) {
@@ -58,4 +69,5 @@ window.music = new function () {
             This.advancePlaylist();
         }
     });
+
 }();

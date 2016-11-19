@@ -116,8 +116,11 @@
         window.setTimeout(function(ev) {
             window.camera.takePicture();
         }, 6000);
-    });
 
+        $("#media").bind("ended", function(evt) {
+            window.music.advancePlaylist();
+        });
+    });
 
 </script>
 

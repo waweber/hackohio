@@ -61,7 +61,7 @@ body {
         width: 250px;
     }
 
-    .songinfo {
+    .songinfo, .songinfo img {
         width: 125px;
         height: 125px;
     }
@@ -87,7 +87,7 @@ body {
         width: 500px;
     }
 
-    .songinfo {
+    .songinfo, .songinfo img {
         width: 250px;
         height: 250px;
     }
