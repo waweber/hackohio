@@ -18,6 +18,23 @@ body {
     vertical-align: middle;
 }
 
+.songpanel {
+    margin: auto;
+}
+
+.songinfo {
+    background: #ccc;
+}
+
+.songinfotable {
+    margin: 5px;
+}
+
+.songinfotextcol {
+    display: flex;
+    align-items: center;
+}
+
 @media(max-width: 767px) {
     .bottombar {
         background: #333;
@@ -28,6 +45,20 @@ body {
         right: 0px;
         height: 60px;
     }
+
+    .songpanel {
+        width: 250px;
+    }
+
+    .songinfo {
+        width: 125px;
+        height: 125px;
+    }
+
+    .songinfotextcol {
+        min-height: 125px;
+    }
+
 }
 
 @media(min-width: 768px) {
@@ -39,5 +70,18 @@ body {
         left: 30px;
         right: 30px;
         height: 60px;
+    }
+
+    .songpanel {
+        width: 500px;
+    }
+
+    .songinfo {
+        width: 250px;
+        height: 250px;
+    }
+
+    .songinfotextcol {
+        min-height: 250px;
     }
 }
