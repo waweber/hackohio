@@ -126,7 +126,7 @@ def mood_twitter_view(request):
     }
 
 @view_config(route_name="mood#webcam", renderer="json", request_method="POST")
-def mood_twitter_view(request):
+def mood_webcam_view(request):
     picture = request.POST.get('webcam').file
 
     # TODO: Check validity? Resize?
