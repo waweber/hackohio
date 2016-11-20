@@ -171,6 +171,12 @@ body {
         height: 250px;
         width: 250px;
     }
+
+    .songinfotable {
+        margin: 15px;
+        font-size: 26px;
+    }
+
 }
 
 .glowy {

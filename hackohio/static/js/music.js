@@ -130,7 +130,6 @@ window.music = new function () {
 
         This.analyser = analyser;
 
-        console.log(analyser.fftSize);
         analyser.fftSize = 2048;
 
         src.connect(analyser);

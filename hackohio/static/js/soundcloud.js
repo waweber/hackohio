@@ -63,7 +63,6 @@ window.soundcloud = new function() {
         This.getTracks(id, function(tracks) {
             var pls = This.buildPlaylist(tracks);
             window.music.queuePlaylist(pls);
-            console.log(tracks);
         });
 
     };

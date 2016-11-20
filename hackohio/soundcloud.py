@@ -2,6 +2,7 @@ from hackohio.secrets import get_secret
 import logging
 
 import requests
+import random
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +42,7 @@ def get_playlist_tracks(playlist_id):
 
     full_tracks.extend(data)
 
-    logger.debug(full_tracks)
+    random.shuffle(full_tracks);
 
     return full_tracks
 
