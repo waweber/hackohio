@@ -130,7 +130,7 @@ body {
 
 @media(max-width: 767px) {
     .bottombar {
-        background: #111;
+        background: #111 url("../img/bar.jpg") bottom center;
         box-shadow: 0px 0px 5px #111;
         position: fixed;
         bottom: 0px;
@@ -153,8 +153,8 @@ body {
 
 @media(min-width: 768px) {
     .bottombar {
-        background: #111;
-        box-shadow: 0px 0px 5px #111;
+        background: #111 url("../img/bar.jpg") bottom center;
+        box-shadow: 0px 0px 5px #333;
         position: fixed;
         bottom: 0px;
         left: 30px;
