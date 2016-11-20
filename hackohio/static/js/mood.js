@@ -1,5 +1,5 @@
 window.mood = new function(){
-    this.updateMode = "webcam";
+    this.updateMode = "twitter";
     this.twitterHandle = "librewulf";
     this.currentMood = "neutral";
 
@@ -8,7 +8,8 @@ window.mood = new function(){
     this.setMood = function(mood) {
         if (mood != This.currentMood) {
             console.log("Mood: " + mood);
-            window.music.getPlaylist(mood, window.music.queuePlaylist);
+            // TODO: soundcloud? window.music.getPlaylist(mood, window.music.queuePlaylist);
+            window.soundcloud.queuePlaylist(mood);
 
             $(".glowy").removeClass("happy");
             $(".glowy").removeClass("sad");

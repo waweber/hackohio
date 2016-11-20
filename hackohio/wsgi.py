@@ -2,6 +2,9 @@ import logging
 from pyramid.config import Configurator
 from pyramid.view import view_config
 from hackohio.mood import Mood
+from hackohio.secrets import get_secret
+from hackohio import soundcloud
+from pyramid.response import Response
 
 logger = logging.getLogger(__name__)
 
@@ -19,6 +22,9 @@ def main(global_config, **settings):
     # Routes
     config.add_route("index", "/")
     config.add_route("playlist", "/playlist/{name}")
+    config.add_route("soundcloud_tracks", "/soundcloud/tracks")
+    config.add_route("soundcloud_streams", "/soundcloud/streams")
+    config.add_route("soundcloud_file", "/soundcloud/file")
 
     for mood_provider in ["webcam", "voice", "twitter"]:
         config.add_route("mood#%s" % mood_provider, "/mood/%s" % mood_provider)
@@ -30,7 +36,8 @@ def main(global_config, **settings):
 
 @view_config(route_name="index", renderer="index.html", request_method="GET")
 def index_view(request):
-    return {}
+    client_id = get_secret("soundcloud", "client_id")
+    return {"client_id": client_id}
 
 @view_config(route_name="playlist", renderer="json", request_method="GET")
 def playlist_view(request):
@@ -138,4 +145,27 @@ def mood_webcam_view(request):
     except Exception as e:
         logger.debug("microsoft picture api failed", exc_info=True)
         return "none"
+
+@view_config(route_name="soundcloud_tracks", renderer="json",
+        request_method="GET")
+def soundcloud_tracks(request):
+    playlist_id = request.GET.get("playlist_id")
+
+    return soundcloud.get_playlist_tracks(playlist_id)
+
+@view_config(route_name="soundcloud_streams", renderer="json",
+        request_method="GET")
+def soundcloud_streams(request):
+    track_id = request.GET.get("track_id")
+
+    return soundcloud.get_stream_url(track_id)
+
+@view_config(route_name="soundcloud_file", request_method="GET")
+def soundcloud_file(request):
+    track_id = request.GET.get("track_id")
+
+    request.response.content_type = "audio/mp3"
+
+    data = soundcloud.get_data(track_id)
+    return Response(body=data, content_type="audio/mp3")
 

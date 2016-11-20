@@ -28,9 +28,19 @@ window.music = new function () {
         $("#artistName").html(songInfo.artist);
         $("#albumName").html(songInfo.album);
         $("#albumArt").attr("src", songInfo.cover);
-        $("#media").attr("src", songInfo.media);
-        $("#media")[0].load();
-        $("#media")[0].play();
+
+        
+        function playMedia(url) {
+            $("#media").attr("src", url);
+            $("#media")[0].load();
+            $("#media")[0].play();
+        }
+
+        if (songInfo["track_id"]) {
+            window.soundcloud.playTrackId(songInfo.track_id, playMedia);
+        } else {
+            playMedia(songInfo.media);
+        }
 
         if ($(".playbtn").hasClass("glyphicon-play")) {
             $(".playbtn").removeClass("glyphicon-play");
@@ -120,7 +130,6 @@ window.music = new function () {
 
         This.analyser = analyser;
 
-        console.log(analyser.fftSize);
         analyser.fftSize = 2048;
 
         src.connect(analyser);

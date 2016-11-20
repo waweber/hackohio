@@ -14,6 +14,7 @@
     <script src="/static/js/bootstrap-slider.min.js"></script>
     <script src="/static/js/webcam.min.js"></script>
     <script src="/static/js/settings.js"></script>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 </head>
 <body>
 
@@ -125,13 +126,21 @@
 
 <div style="display:none" id="cameraplaceholder"></div>
 
+<script>
+/*SC.initialize({
+    client_id: "{{client_id}}",
+    redirect_uri: "http://example.com/callback"
+});*/
+window.soundcloudClientId = "{{client_id}}";
+</script>
 
 <script src="/static/js/music.js"></script>
 <script src="/static/js/camera.js"></script>
 <script src="/static/js/mood.js"></script>
+<script src="/static/js/soundcloud.js"></script>
 
 <script>
-    window.music.getPlaylist("angry", window.music.queuePlaylist);
+    //window.music.getPlaylist("angry", window.music.queuePlaylist);
 </script>
 
 <script>

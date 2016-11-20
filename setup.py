@@ -6,6 +6,7 @@ reqs = [
     "waitress",
     "tweepy",
     "pyramid_debugtoolbar",
+    "requests",
 ]
 
 setup(
