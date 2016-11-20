@@ -151,6 +151,10 @@ body {
         width: 125px;
     }
 
+    .songinfotextcol td {
+        width: 125px;
+    }
+
 }
 
 @media(min-width: 768px) {
@@ -177,6 +181,10 @@ body {
     .songinfotable {
         margin: 15px;
         font-size: 26px;
+    }
+
+    .songinfotextcol td {
+        width: 250px;
     }
 
 }
