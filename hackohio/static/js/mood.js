@@ -7,6 +7,13 @@ window.mood = new function(){
     this.setMood = function(mood) {
         console.log("Mood: " + mood);
         window.music.getPlaylist(mood, window.music.queuePlaylist);
+
+        $(".glowy").removeClass("happy");
+        $(".glowy").removeClass("sad");
+        $(".glowy").removeClass("angry");
+
+        if (mood == "happy" || mood == "sad" || mood == "angry")
+            $(".glowy").addClass(mood);
     };
 
     this.updateMood = function() {
