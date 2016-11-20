@@ -68,8 +68,18 @@ body {
 }
 
 .slider-handle {
-	background-color: #bbb;
+	background-color: #0ce3ac;
 	background-image: none;
+}
+
+.slider-track {
+    background-image: none;
+    background-color: #444;
+}
+
+.slider-selection {
+    background-image: none;
+    background-color: #444;
 }
 
 .slider {
