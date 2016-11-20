@@ -2,6 +2,7 @@ import logging
 from pyramid.config import Configurator
 from pyramid.view import view_config
 from hackohio.mood import Mood
+from hackohio.secrets import get_secret
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +31,8 @@ def main(global_config, **settings):
 
 @view_config(route_name="index", renderer="index.html", request_method="GET")
 def index_view(request):
-    return {}
+    client_id = get_secret("soundcloud", "client_id")
+    return {"client_id": client_id}
 
 @view_config(route_name="playlist", renderer="json", request_method="GET")
 def playlist_view(request):
