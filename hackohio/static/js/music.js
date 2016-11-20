@@ -10,7 +10,12 @@ window.music = new function () {
         if ($(element).hasClass("glyphicon-play")) {
             $(element).removeClass("glyphicon-play");
             $(element).addClass("glyphicon-pause");
-            $("#media")[0].play();
+
+            if (!$("#media").attr("src")) {
+                This.advancePlaylist();
+            } else {
+                $("#media")[0].play();
+            }
         } else if ($(element).hasClass("glyphicon-pause")) {
             $(element).removeClass("glyphicon-pause");
             $(element).addClass("glyphicon-play");
@@ -46,15 +51,21 @@ window.music = new function () {
 
     this.queuePlaylist = function(playlist) {
         This.currentPlaylist = playlist;
-
-        This.play(This.currentPlaylist.shift());
     };
 
     this.advancePlaylist = function() {
         if (This.currentPlaylist.length > 0) {
             var song = This.currentPlaylist.shift();
             This.play(song);
-        };
+        } else {
+            $("#songTitle").html("");
+            $("#artistName").html("");
+            $("#albumName").html("");
+            $("#albumArt").attr("src", "");
+            $("#media").attr("src", "");
+            $(".playbtn").removeClass("glyphicon-pause");
+            $(".playbtn").addClass("glyphicon-play");
+        }
     };
 
     this.getPlaylist = function(mood, callback) {
