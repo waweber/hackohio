@@ -19,6 +19,10 @@ $(function() {
             }
             else if (selected.id === 'webcamDet') {
                 window.mood.updateMode = "webcam";
+                window.mood.twitterHandle = undefined;
+            } else {
+                window.mood.updateMode = undefined;
+                window.mood.twitterHandle = undefined;
             }
 
             $('#settingsModal').modal('toggle');

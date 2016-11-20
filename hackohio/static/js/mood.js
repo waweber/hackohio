@@ -1,6 +1,6 @@
-window.mood = new function(){
-    this.updateMode = "twitter";
-    this.twitterHandle = "librewulf";
+window.mood = new function(){ //jshint ignore:line
+    this.updateMode = undefined;
+    this.twitterHandle = undefined;
     this.currentMood = "neutral";
 
     var This = this;
@@ -23,7 +23,7 @@ window.mood = new function(){
     };
 
     this.updateMood = function() {
-        if (This.updateMode == "twitter") {
+        if (This.updateMode == "twitter" && This.twitterHandle !== undefined) {
             $.get("/mood/twitter", {
                 handle: This.twitterHandle
             }, function(data, status, xhr) {
