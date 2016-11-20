@@ -147,20 +147,21 @@ def mood_webcam_view(request):
         return "none"
 
 @view_config(route_name="soundcloud_tracks", renderer="json",
-        request_method="GET")
+        request_method="GET", http_cache=3600)
 def soundcloud_tracks(request):
     playlist_id = request.GET.get("playlist_id")
 
     return soundcloud.get_playlist_tracks(playlist_id)
 
 @view_config(route_name="soundcloud_streams", renderer="json",
-        request_method="GET")
+        request_method="GET", http_cache=3600)
 def soundcloud_streams(request):
     track_id = request.GET.get("track_id")
 
     return soundcloud.get_stream_url(track_id)
 
-@view_config(route_name="soundcloud_file", request_method="GET")
+@view_config(route_name="soundcloud_file", request_method="GET",
+        http_cache=3600)
 def soundcloud_file(request):
     track_id = request.GET.get("track_id")
 
