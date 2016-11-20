@@ -61,7 +61,7 @@ window.music = new function () {
             $("#songTitle").html("");
             $("#artistName").html("");
             $("#albumName").html("");
-            $("#albumArt").attr("src", "");
+            $("#albumArt").attr("src", "/static/img/placeholder.png");
             $("#media").attr("src", "");
             $(".playbtn").removeClass("glyphicon-pause");
             $(".playbtn").addClass("glyphicon-play");
