@@ -26,21 +26,22 @@ def get_playlist_tracks(playlist_id):
     full_tracks = [t for t in tracks if "user" in t]
     partial_tracks = [t for t in tracks if "user" not in t]
 
-    partial_ids = [str(t["id"]) for t in partial_tracks]
+    if len(partial_tracks) > 0:
+        partial_ids = [str(t["id"]) for t in partial_tracks]
 
-    url = "https://api-v2.soundcloud.com/tracks"
+        url = "https://api-v2.soundcloud.com/tracks"
 
-    params = {
-        "ids": ",".join(partial_ids),
-        "client_id": secret,
-        "app_version": 1479467323,
-    }
+        params = {
+            "ids": ",".join(partial_ids),
+            "client_id": secret,
+            "app_version": 1479467323,
+        }
 
-    res = requests.get(url, params)
+        res = requests.get(url, params)
 
-    data = res.json()
+        data = res.json()
 
-    full_tracks.extend(data)
+        full_tracks.extend(data)
 
     random.shuffle(full_tracks);
 
