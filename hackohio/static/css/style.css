@@ -69,7 +69,6 @@ body {
 }
 
 .slider-handle {
-	background-color: #0ce3ac;
 	background-image: none;
 }
 
@@ -90,9 +89,7 @@ body {
 }
 
 .brand {
-    color: #0ce3ac;
     font-size: 64px;
-    text-shadow: 0px 0px 4px #eee;
 }
 
 .analyser-container-container {
@@ -225,7 +222,7 @@ body {
     100%{background-position:0% 18%}
 }
 
-.glowy.angry {
+.angry .glowy {
     background: radial-gradient(#500, rgba(0,0,0,0));
     background-size: 500% 500%;
 
@@ -237,7 +234,7 @@ body {
     mix-blend-mode: screen;
 }
 
-.glowy.happy {
+.happy .glowy {
     background: radial-gradient(#030, rgba(0,0,0,0));
     background-size: 500% 500%;
 
@@ -249,7 +246,7 @@ body {
     mix-blend-mode: screen;
 }
 
-.glowy.sad {
+.sad .glowy {
     background: radial-gradient(#013, rgba(0,0,0,0));
     background-size: 500% 500%;
 
@@ -301,4 +298,132 @@ body {
 .branding .glyphicon-wrench {
     font-size: 24px;
     padding-top: 1em;
+}
+
+/* Override colors for moods */
+
+/* angry */
+.angry a {
+    color: #d33;
+}
+
+.angry a:hover,a:focus {
+    color:#d33;
+}
+
+.angry .btn-link {
+    color:#d33;
+}
+
+.angry .btn-link:hover,.btn-link:focus {
+    color:#d33;
+}
+
+.angry .nav .open>a,.nav .open>a:hover,.nav .open>a:focus {
+    border-color: #d33;
+}
+
+.angry a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active{
+    border-color: #d33;
+}
+
+.angry a.list-group-item,button.list-group-item {
+    color: #d33;
+}
+
+.angry a.list-group-item:hover,button.list-group-item:hover,a.list-group-item:focus,button.list-group-item:focus {
+    color:#d33;
+}
+
+.angry .brand {
+    color: #d33;
+    text-shadow: 0px 0px 4px #d33;
+}
+
+.angry .slider-handle {
+    background-color: #d33;
+}
+
+/* happy */
+.happy a {
+    color: #3a3;
+}
+
+.happy a:hover,a:focus {
+    color:#3a3;
+}
+
+.happy .btn-link {
+    color:#3a3;
+}
+
+.happy .btn-link:hover,.btn-link:focus {
+    color:#3a3;
+}
+
+.happy .nav .open>a,.nav .open>a:hover,.nav .open>a:focus {
+    border-color: #3a3;
+}
+
+.happy a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active{
+    border-color: #3a3;
+}
+
+.happy a.list-group-item,button.list-group-item {
+    color: #3a3;
+}
+
+.happy a.list-group-item:hover,button.list-group-item:hover,a.list-group-item:focus,button.list-group-item:focus {
+    color:#3a3;
+}
+
+.happy .brand {
+    color: #3a3;
+    text-shadow: 0px 0px 4px #3a3;
+}
+
+.happy .slider-handle {
+    background-color: #3a3;
+}
+
+/* sad */
+.sad a {
+    color: #48f;
+}
+
+.sad a:hover,a:focus {
+    color:#48f;
+}
+
+.sad .btn-link {
+    color:#48f;
+}
+
+.sad .btn-link:hover,.btn-link:focus {
+    color:#48f;
+}
+
+.sad .nav .open>a,.nav .open>a:hover,.nav .open>a:focus {
+    border-color: #48f;
+}
+
+.sad a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active{
+    border-color: #48f;
+}
+
+.sad a.list-group-item,button.list-group-item {
+    color: #48f;
+}
+
+.sad a.list-group-item:hover,button.list-group-item:hover,a.list-group-item:focus,button.list-group-item:focus {
+    color:#48f;
+}
+
+.sad .brand {
+    color: #48f;
+    text-shadow: 0px 0px 4px #48f;
+}
+
+.sad .slider-handle {
+    background-color: #48f;
 }
