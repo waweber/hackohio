@@ -1,5 +1,4 @@
-
-window.music = new function () {
+window.music = new function () { // jshint ignore:line
 
     var This = this;
 
@@ -29,14 +28,13 @@ window.music = new function () {
         $("#albumName").html(songInfo.album);
         $("#albumArt").attr("src", songInfo.cover);
 
-        
         function playMedia(url) {
             $("#media").attr("src", url);
             $("#media")[0].load();
             $("#media")[0].play();
         }
 
-        if (songInfo["track_id"]) {
+        if (songInfo.track_id) {
             window.soundcloud.playTrackId(songInfo.track_id, playMedia);
         } else {
             playMedia(songInfo.media);
@@ -116,7 +114,7 @@ window.music = new function () {
             var val = avgFreqData[i] / 200;
 
             var el = document.getElementById("analyser-bar-" + i);
-            
+
             if (el) {
                 el.style = "height: " + (100 * val) + "%";
             }

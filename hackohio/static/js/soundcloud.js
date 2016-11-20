@@ -1,11 +1,9 @@
-window.soundcloud = new function() {
+window.soundcloud = new function() { // jshint ignore:line
 
     var This = this;
 
-    
-
     this.getTracks = function(playlist_id, callback) {
-        var url = "/soundcloud/tracks"
+        var url = "/soundcloud/tracks";
 
         var params = {
             playlist_id: playlist_id
@@ -21,7 +19,7 @@ window.soundcloud = new function() {
 
         var cover = track.artwork_url || track.user.avatar_url;
 
-        cover = cover.replace("large", "t500x500")
+        cover = cover.replace("large", "t500x500");
 
         return {
             artist: track.user.username,
@@ -29,7 +27,7 @@ window.soundcloud = new function() {
             title: track.title,
             cover: cover,
             track_id: track.id
-        }
+        };
     };
 
     this.buildPlaylist = function(tracks) {
