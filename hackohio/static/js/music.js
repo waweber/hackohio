@@ -119,6 +119,7 @@ window.music = new function () {
         analyser.fftSize = 2048;
 
         src.connect(analyser);
+        src.connect(ctx.destination);
 
         window.setInterval(function (ev) {
             renderAnalyser();
