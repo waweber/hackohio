@@ -1,8 +1,8 @@
 window.camera = new function() {
-    this.takePicture = function() {
+    this.takePicture = function(callback) {
         Webcam.snap(function(data_uri) {
             Webcam.upload(data_uri, "/mood/webcam", function(code, text) {
-                console.log(text);
+                callback(text);
             });
         });
     };
