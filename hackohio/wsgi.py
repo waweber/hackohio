@@ -4,6 +4,7 @@ from pyramid.view import view_config
 from hackohio.mood import Mood
 from hackohio.secrets import get_secret
 from hackohio import soundcloud
+from pyramid.response import Response
 
 logger = logging.getLogger(__name__)
 
@@ -165,5 +166,6 @@ def soundcloud_file(request):
 
     request.response.content_type = "audio/mp3"
 
-    return soundcloud.get_data(track_id)
+    data = soundcloud.get_data(track_id)
+    return Response(body=data, content_type="audio/mp3")
 
