@@ -61,7 +61,7 @@ window.music = new function () {
             $("#songTitle").html("");
             $("#artistName").html("");
             $("#albumName").html("");
-            $("#albumArt").attr("src", "");
+            $("#albumArt").attr("src", "/static/img/placeholder.png");
             $("#media").attr("src", "");
             $(".playbtn").removeClass("glyphicon-pause");
             $(".playbtn").addClass("glyphicon-play");
@@ -75,6 +75,11 @@ window.music = new function () {
     };
 
     var renderAnalyser = function() {
+
+        if (window.innerWidth < 400) {
+            return;
+        }
+
         var freqData = new Uint8Array(This.analyser.frequencyBinCount);
         This.analyser.getByteFrequencyData(freqData);
 

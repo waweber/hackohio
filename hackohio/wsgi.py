@@ -131,4 +131,11 @@ def mood_webcam_view(request):
 
     # TODO: Check validity? Resize?
 
-    return Mood.mood_from_picture(picture)
+    try:
+        mood = Mood.mood_from_picture(picture)
+        logger.debug("Mood: %r" % mood)
+        return mood
+    except Exception as e:
+        logger.debug("microsoft picture api failed", exc_info=True)
+        return "none"
+

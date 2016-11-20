@@ -1,5 +1,5 @@
 window.mood = new function(){
-    this.updateMode = "twitter";
+    this.updateMode = "webcam";
     this.twitterHandle = "librewulf";
     this.currentMood = "neutral";
 

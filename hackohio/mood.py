@@ -3,6 +3,9 @@ import tweepy
 import requests
 import json
 from hackohio.secrets import get_secret
+import logging
+
+logger = logging.getLogger(__name__)
 
 TEXT_ANALYSIS_URL = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment'
 PICTURE_ANALYSIS_URL = 'https://api.projectoxford.ai/emotion/v1.0/recognize'
@@ -58,6 +61,8 @@ class Mood:
         pic_data = picture.read()
         r = requests.post(PICTURE_ANALYSIS_URL, headers=headers, data=pic_data)
         response_json = r.json()
+
+        logger.debug(response_json)
 
         # Find strongest emotion
         max_val = 0
