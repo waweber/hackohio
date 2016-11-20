@@ -43,9 +43,9 @@ class Mood:
 
         mood = cls._mood_from_text(clean)
 
-        if (mood > 0.65):
+        if (mood > 0.7):
             return 'happy'
-        elif (mood < 0.45):
+        elif (mood < 0.3):
             return'sad'
 
         return 'neutral'
