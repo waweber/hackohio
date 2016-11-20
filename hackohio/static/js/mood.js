@@ -1,19 +1,24 @@
 window.mood = new function(){
     this.updateMode = "webcam";
     this.twitterHandle = "librewulf";
+    this.currentMood = "neutral";
 
     var This = this;
 
     this.setMood = function(mood) {
-        console.log("Mood: " + mood);
-        window.music.getPlaylist(mood, window.music.queuePlaylist);
+        if (mood != This.currentMood) {
+            console.log("Mood: " + mood);
+            window.music.getPlaylist(mood, window.music.queuePlaylist);
 
-        $(".glowy").removeClass("happy");
-        $(".glowy").removeClass("sad");
-        $(".glowy").removeClass("angry");
+            $(".glowy").removeClass("happy");
+            $(".glowy").removeClass("sad");
+            $(".glowy").removeClass("angry");
 
-        if (mood == "happy" || mood == "sad" || mood == "angry")
-            $(".glowy").addClass(mood);
+            if (mood == "happy" || mood == "sad" || mood == "angry")
+                $(".glowy").addClass(mood);
+
+            This.currentMood = mood;
+        }
     };
 
     this.updateMood = function() {
