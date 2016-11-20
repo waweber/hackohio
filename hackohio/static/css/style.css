@@ -145,6 +145,10 @@ body {
 
     .songinfotextcol {
         height: 125px;
+        min-width: 125px;
+    }
+
+    .songinfotextcol td {
         width: 125px;
     }
 
@@ -168,12 +172,16 @@ body {
 
     .songinfotextcol {
         height: 250px;
-        width: 250px;
+        min-width: 250px;
     }
 
     .songinfotable {
         margin: 15px;
         font-size: 26px;
+    }
+
+    .songinfotextcol td {
+        width: 250px;
     }
 
 }

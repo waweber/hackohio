@@ -43,9 +43,9 @@ class Mood:
 
         mood = cls._mood_from_text(clean)
 
-        if (mood > 0.65):
+        if (mood > 0.7):
             return 'happy'
-        elif (mood < 0.45):
+        elif (mood < 0.3):
             return'sad'
 
         return 'neutral'
@@ -64,26 +64,25 @@ class Mood:
 
         logger.debug(response_json)
 
+        data = response_json[0]["scores"]
+
+        # Aggregate emotion
+        emotions = {
+            "happy": data["happiness"],
+            "sad": data["fear"] + data["sadness"],
+            "angry": data["anger"] + data["disgust"] + data["contempt"],
+            "neutral": data["neutral"],
+        }
+
+        logger.debug(response_json)
+
         # Find strongest emotion
-        max_val = 0
+        max_val = emotions["neutral"]
         max_emotion = 'neutral'
-        for key, value in response_json[0]["scores"].items():
+        for key, value in emotions.items():
             if value > max_val:
                 max_val = value
                 max_emotion = key
 
         # Standardize the emotion
-        if max_emotion == 'happiness':
-            return 'happy'
-        elif max_emotion == 'sadness':
-            return 'sad'
-        elif max_emotion == 'fear':
-            return 'sad'
-        elif max_emotion == 'anger':
-            return 'angry'
-        elif max_emotion == 'disgust':
-            return 'angry'
-        elif max_emotion == 'contempt':
-            return 'angry'
-
-        return 'neutral'
+        return max_emotion

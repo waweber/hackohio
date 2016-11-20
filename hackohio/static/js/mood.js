@@ -15,8 +15,14 @@ window.mood = new function(){ //jshint ignore:line
             $(".glowy").removeClass("sad");
             $(".glowy").removeClass("angry");
 
-            if (mood == "happy" || mood == "sad" || mood == "angry")
+            $("body").removeClass("happy");
+            $("body").removeClass("sad");
+            $("body").removeClass("angry");
+
+            if (mood == "happy" || mood == "sad" || mood == "angry") {
                 $(".glowy").addClass(mood);
+                $("body").addClass(mood);
+            }
 
             This.currentMood = mood;
         }
