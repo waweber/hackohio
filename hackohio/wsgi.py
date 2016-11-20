@@ -131,4 +131,8 @@ def mood_webcam_view(request):
 
     # TODO: Check validity? Resize?
 
-    return Mood.mood_from_picture(picture)
+    try:
+        return Mood.mood_from_picture(picture)
+    except Exception:
+        return "none"
+
