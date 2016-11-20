@@ -14,11 +14,11 @@ $(function() {
 
         if (selected !== undefined) {
             if (selected.id === 'twitterDet') {
-                window.updateMode = "twitter";
-                window.twitterHandle = $('#twitterHandle input').val();
+                window.mood.updateMode = "twitter";
+                window.mood.twitterHandle = $('#twitterHandle input').val();
             }
             else if (selected.id === 'webcamDet') {
-                window.updateMode = "webcam";
+                window.mood.updateMode = "webcam";
             }
 
             $('#settingsModal').modal('toggle');
