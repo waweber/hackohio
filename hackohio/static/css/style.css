@@ -68,8 +68,18 @@ body {
 }
 
 .slider-handle {
-	background-color: #bbb;
+	background-color: #0ce3ac;
 	background-image: none;
+}
+
+.slider-track {
+    background-image: none;
+    background-color: #444;
+}
+
+.slider-selection {
+    background-image: none;
+    background-color: #444;
 }
 
 .slider {
@@ -120,8 +130,8 @@ body {
 
 @media(max-width: 767px) {
     .bottombar {
-        background: #333;
-        box-shadow: 0px 0px 5px #333;
+        background: #111;
+        box-shadow: 0px 0px 5px #111;
         position: fixed;
         bottom: 0px;
         left: 0px;
@@ -143,8 +153,8 @@ body {
 
 @media(min-width: 768px) {
     .bottombar {
-        background: #333;
-        box-shadow: 0px 0px 5px #333;
+        background: #111;
+        box-shadow: 0px 0px 5px #111;
         position: fixed;
         bottom: 0px;
         left: 30px;
