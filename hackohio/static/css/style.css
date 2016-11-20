@@ -253,3 +253,7 @@ body {
         background-color: rgba(0,0,0,0) !important;
     }
 }
+
+.invisible {
+    display: none;
+}
