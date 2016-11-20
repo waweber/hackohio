@@ -6,3 +6,5 @@ __pycache__
 /venv
 /.env
 /secrets.ini
+/hackohio/static/media/*.ogg
+/hackohio/static/media/*.jpg
