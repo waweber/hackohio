@@ -75,6 +75,11 @@ window.music = new function () {
     };
 
     var renderAnalyser = function() {
+
+        if (window.innerWidth < 400) {
+            return;
+        }
+
         var freqData = new Uint8Array(This.analyser.frequencyBinCount);
         This.analyser.getByteFrequencyData(freqData);
 
