@@ -31,3 +31,12 @@ def get_stream_url(track_id):
 
     return res.json()
 
+def get_data(track_id):
+    streams = get_stream_url(track_id)
+
+    url = streams["http_mp3_128_url"]
+
+    res = requests.get(url)
+    data = res.content
+
+    return data

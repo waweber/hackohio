@@ -23,6 +23,7 @@ def main(global_config, **settings):
     config.add_route("playlist", "/playlist/{name}")
     config.add_route("soundcloud_tracks", "/soundcloud/tracks")
     config.add_route("soundcloud_streams", "/soundcloud/streams")
+    config.add_route("soundcloud_file", "/soundcloud/file")
 
     for mood_provider in ["webcam", "voice", "twitter"]:
         config.add_route("mood#%s" % mood_provider, "/mood/%s" % mood_provider)
@@ -157,3 +158,12 @@ def soundcloud_streams(request):
     track_id = request.GET.get("track_id")
 
     return soundcloud.get_stream_url(track_id)
+
+@view_config(route_name="soundcloud_file", request_method="GET")
+def soundcloud_file(request):
+    track_id = request.GET.get("track_id")
+
+    request.response.content_type = "audio/mp3"
+
+    return soundcloud.get_data(track_id)
+
