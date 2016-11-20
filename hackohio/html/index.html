@@ -136,15 +136,17 @@
 <div style="display:none" id="cameraplaceholder"></div>
 
 <script>
-C.initialize({
+/*SC.initialize({
     client_id: "{{client_id}}",
     redirect_uri: "http://example.com/callback"
-});
+});*/
+window.soundcloudClientId = "{{client_id}}";
 </script>
 
 <script src="/static/js/music.js"></script>
 <script src="/static/js/camera.js"></script>
 <script src="/static/js/mood.js"></script>
+<script src="/static/js/soundcloud.js"></script>
 
 <script>
     window.music.getPlaylist("angry", window.music.queuePlaylist);
